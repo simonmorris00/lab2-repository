@@ -54,15 +54,11 @@ app.get('/', (req, res) => {
   res.send('Welcome to the API');
 });
 
-app.get("/:universalURL", (req, res) => {
-  res.send("404 URL NOT FOUND");
-});
-
 const customerRoutes = require('./routes/customers');
-app.use('/api', customerRoutes);
+app.use('/customers', customerRoutes);
 
 const ordersRoutes = require('./routes/orders');
-app.use('/api', ordersRoutes);
+app.use('/orders', ordersRoutes);
 
 function delay(ms) {
   return new Promise((resolve) => {
